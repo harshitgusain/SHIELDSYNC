@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldSync - Cybersecurity for SMBs</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('home_background.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: rgba(51, 51, 51, 0.7);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .login-box {
+            background: #4d4d4d65;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(38, 38, 38, 0.53);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .logo-container img {
+            max-width: 80px;
+            height: auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #333333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: white;
+        }
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #333333;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+        .auth-container input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        .auth-container button {
+            background: #af4c4c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .nav-links {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+            .nav-links a {
+                margin: 5px 0;
+            }
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            .auth-container {
+                width: 90%;
+            }
+            .logo-container img {
+                max-width: 60px;
+            }
+        }
+    </style>
+    <script>
+        function toggleAuthForm(type) {
+            var loginForm = document.getElementById("loginForm");
+            var signupForm = document.getElementById("signupForm");
+            if (type === 'login') {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+            } else {
+                signupForm.style.display = "block";
+                loginForm.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="shieldsync_logo.png" alt="ShieldSync Logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="login-box" onclick="toggleAuthForm('login')">
+            <span>Login/Signup</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Welcome to ShieldSync</h1>
+        <p>Shield Your Business, Protect Your Data.</p>
+        
+    </div>
+
+    <div id="loginForm" class="auth-container">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Username" required><br>
+            <input type="password" placeholder="Password" required><br>
+            <input type="text" placeholder="Enter CAPTCHA" required><br>
+            <img src="captcha_image.png" alt="CAPTCHA" style="margin: 10px 0;"><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="toggleAuthForm('signup')">Sign Up</a></p>
+    </div>
+
+    <div id="signupForm" class="auth-container" style="display: none;">
+        <h2>Sign Up</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required><br>
+            <input type="email" placeholder="Email" required><br>
+            <input type="text" placeholder="Username" required><br>
+            <input type="password" placeholder="Password" required><br>
+            <input type="password" placeholder="Confirm Password" required><br>
+            <input type="text" placeholder="Enter CAPTCHA" required><br>
+            <img src="captcha_image.png" alt="CAPTCHA" style="margin: 10px 0;"><br>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="toggleAuthForm('login')">Login</a></p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Cybersecurity SMBs. All rights reserved.</p>
+    </div>
+</body>
+</html>
